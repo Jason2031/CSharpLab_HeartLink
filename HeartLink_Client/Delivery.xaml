@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="HeartLink_Client.Delivery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeartLink_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="10">
+        <Grid Name="gridForStudent" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="你的快递" FontSize="90"/>
+            <ListBox Grid.Row="2" Name="display" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5"/>
+            <Button Grid.Row="3" Name="detail" Content="查看" IsEnabled="False" HorizontalAlignment="Stretch"/>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Name="goBack" Content="返回" HorizontalAlignment="Stretch" Click="GoBack"/>
+                <Button Grid.Column="2" Name="solve" Content="解决" IsEnabled="False" HorizontalAlignment="Stretch" Click="Confirm"/>
+            </Grid>
+        </Grid>
+        <Grid Name="gridForSupervisor" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="快递" FontSize="100"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="学生编号：" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
+                <TextBox Grid.Column="1" Name="ID" InputScope="Number"/>
+            </Grid>
+            <TextBlock Grid.Row="4" Text="快递内容：" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="30"/>
+            <TextBox Grid.Row="5" Name="content" MaxLength="10" TextWrapping="Wrap" MinHeight="200"/>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="返回" HorizontalAlignment="Stretch" Click="GoBack"/>
+                <Button Grid.Column="2" Name="confirm" Content="确定" IsEnabled="False" HorizontalAlignment="Stretch" Click="Confirm"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

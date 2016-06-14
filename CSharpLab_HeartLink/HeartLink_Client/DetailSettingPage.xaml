@@ -1,0 +1,153 @@
+﻿<Page
+    x:Class="HeartLink_Client.DetailSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeartLink_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Stretch">
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="ID" FontSize="25"/>
+                        <TextBlock Grid.Column="2" Name="ID" FontSize="25"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="姓名" FontSize="25"/>
+                        <TextBlock Grid.Column="2" Name="UserName" FontSize="25"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="密码" FontSize="25"/>
+                        <TextBlock Grid.Column="2" Text="****" FontSize="25"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="性别" FontSize="25"/>
+                        <TextBlock Grid.Column="2" Name="Gender" FontSize="25"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="手机" FontSize="25"/>
+                        <TextBlock Grid.Column="2" Name="PhoneNum" FontSize="25"/>
+                    </Grid>
+                </Button>
+                <StackPanel Name="forStudent" Visibility="Collapsed">
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="班级号" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="ClassNum" FontSize="25"/>
+                        </Grid>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="宿舍号" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="DormNum" FontSize="25"/>
+                        </Grid>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="导员姓名" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="DirectorName" FontSize="25"/>
+                        </Grid>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="导员手机" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="DirectorPhoneNum" FontSize="25"/>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+                <StackPanel Name="forSupervior" Visibility="Collapsed">
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="公寓号" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="BuildingNum" FontSize="25"/>
+                        </Grid>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="5,5,5,0">
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="学校" FontSize="25"/>
+                            <TextBlock Grid.Column="2" Name="School" FontSize="25"/>
+                        </Grid>
+                    </Button>                   
+                </StackPanel>
+                <Button Content="退出登录" Click="Logout_Click" HorizontalAlignment="Stretch" Margin="5,0,5,0"/>
+                <Grid HorizontalAlignment="Stretch" Margin="5,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="返回" Grid.Column="0" Click="GoBack_Click" HorizontalAlignment="Stretch"/>
+                    <Button Content="修改" Grid.Column="2" IsEnabled="False" Click="Confirm_Click" HorizontalAlignment="Stretch"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+    
+</Page>

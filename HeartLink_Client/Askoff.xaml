@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="HeartLink_Client.Askoff"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeartLink_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Margin="10">
+        <TextBlock Text="请假" FontSize="100"/>
+        <Grid Name="gridForStudent" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DatePicker Grid.Row="2" Name="date" Header="请选择你要请假的时间"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TimePicker Grid.Column="0" Name="fromTime"/>
+                <TextBlock Grid.Column="1" Text="~" VerticalAlignment="Center"/>
+                <TimePicker Grid.Column="2" Name="toTime"/>
+            </Grid>
+            <TextBlock Grid.Row="4" Text="请写下你请假的理由：" FontSize="30"/>
+            <TextBox Grid.Row="5" Name="reasonTxtBox" TextWrapping="Wrap" MinHeight="200" TextChanged="Changed"/>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Name="goBack" Content="返回" HorizontalAlignment="Stretch" Click="GoBack"/>
+                <Button Grid.Column="2" Name="confirm" Content="确定" IsEnabled="False" HorizontalAlignment="Stretch" Click="confirm_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Name="gridForSupervisor" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="2" Name="display" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding AskOffList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="m_TxtBlcID" Text="{Binding ID}"/>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="m_TxtBlcDate" Text="{Binding Date}"/>
+                                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Name="m_TxtBlcTime" Text="{Binding Time}"/>
+                            </Grid>
+                            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Name="m_TxtBlcReason" Text="{Binding Reason}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Grid.Row="3" Content="查看" Name="detail" HorizontalAlignment="Stretch"/>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Name="m_BtnGoBack" Content="返回" HorizontalAlignment="Stretch" Click="GoBack"/>
+                <Button Grid.Column="2" Name="m_BtnSolve" Content="解决" IsEnabled="False" HorizontalAlignment="Stretch" Click="confirm_Click"/>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</Page>

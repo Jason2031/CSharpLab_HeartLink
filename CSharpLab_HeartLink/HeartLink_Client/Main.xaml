@@ -1,0 +1,200 @@
+﻿<Page
+    x:Class="HeartLink_Client.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeartLink_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="HubSectionHeaderTemplate">
+            <TextBlock Margin="0,0,0,-9.5" Text="{Binding}"/>
+        </DataTemplate>
+
+        <!-- 第3部分 -->
+        <DataTemplate x:Key="StandardTripleLineItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="14.5,0,0,0">
+                    <TextBlock Text="{Binding Title}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                    <TextBlock Text="{Binding Description}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" />
+                    <TextBlock Text="{Binding Subtitle}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <!-- 第5部分 -->
+        <DataTemplate x:Key="StandardDoubleLineItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                <TextBlock Grid.Row="1" Text="{Binding PhoneNum}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Hub Header="Heart-Link" Background="{ThemeResource HubBackgroundImageBrush}">
+            <HubSection Header="工作服务" Name="WorkServiceForSupervisor" Visibility="Collapsed">
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Button BorderBrush="{x:Null}" Width="250" Height="250" Click="Inspection">
+                                    <Button.Background>
+                                        <ImageBrush Stretch="Uniform"  ImageSource="Images/map.png"/>
+                                    </Button.Background>
+                                </Button>
+                                <Button BorderBrush="{x:Null}" Width="250" Height="250" Click="DailyReminder">
+                                    <Button.Background>
+                                        <ImageBrush Stretch="Uniform"  ImageSource="Images/dailyReminder.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="工作服务" Name="WorkServiceForStudent" Visibility="Collapsed">
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <TextBlock Text="每日提醒" FontSize="35"/>
+                                <TextBlock Name="reminderTime" FontSize="25" Text="{Binding Path=ReminderTime}"/>
+                                <TextBlock Name="reminderContent" FontSize="30" Text="{Binding Path=ReminderContent}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <Button Grid.Row="2" FontSize="30" Content="上传位置" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="UploadLocation"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="生活服务">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <GridView Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsItemClickEnabled="True"  ItemClick="LifeServices_ItemClick">
+                            <GridViewItem Margin="0,0,10,10">
+                                <Grid Name="RepairBtn">
+                                    <Image Source="Images/repair.png" Stretch="UniformToFill" Height="138.5" Width="138.5"/>
+                                    <TextBlock Text="Repair" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+                                </Grid>
+                            </GridViewItem>
+                            <GridViewItem Margin="0,0,10,10">
+                                <Grid Name="AskoffBtn">
+                                    <Image Source="Images/askoff.png" Stretch="UniformToFill" Height="138.5" Width="138.5"/>
+                                    <TextBlock Text="Ask off" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+                                </Grid>
+                            </GridViewItem>
+                            <GridViewItem Margin="0,0,10,10">
+                                <Grid Name="DeliveryBtn">
+                                    <Image Source="Images/delivery.png" Stretch="UniformToFill" Height="138.5" Width="138.5"/>
+                                    <TextBlock Text="Express" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+                                </Grid>
+                            </GridViewItem>
+                            <GridViewItem Margin="0,0,10,10">
+                                <Grid Name="WaterBtn">
+                                    <Image Source="Images/water.png" Stretch="UniformToFill" Height="138.5" Width="138.5"/>
+                                    <TextBlock Text="Water delivery" VerticalAlignment="Bottom" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+                                </Grid>
+                            </GridViewItem>
+                        </GridView>
+                        <Button Name="SetupBtn" Grid.Row="1" HorizontalAlignment="Stretch" Content="设置" FontSize="35" Click="SetupBtn_Click"/>
+                        <Button Name="ExitBtn" Grid.Row="2" HorizontalAlignment="Stretch" Content="退出" FontSize="35" Click="Exit"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="留言板" Name="MessageBoard" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="0" Name="MessageBoardDisplay" IsItemClickEnabled="True" ItemClick="MessageBoard_ItemClick" ItemsSource="{Binding MessageBox}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" FontSize="20" HorizontalAlignment="Stretch" Text="{Binding Path=Type}"/>
+                                            <TextBlock Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" Text="{Binding Path=ID}"/>
+                                        </Grid>
+                                        <TextBlock Grid.Row="1" FontSize="20" HorizontalAlignment="Left" Text="{Binding Path=Time}"/>
+                                        <TextBlock Grid.Row="2" FontSize="20" HorizontalAlignment="Left" Text="{Binding Path=Content}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button Grid.Row="1" Content="留言" FontSize="35" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="WriteMessage"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="联系人" Name="ContactersHub" Width="Auto" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="0" Name="ContactersDisplay" SelectionMode="Single" IsItemClickEnabled="True" ItemsSource="{Binding Contacters}" ItemClick="ContacterClick" LostFocus="ContactersList_LostFocus">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" FontSize="30" Text="{Binding Name}"/>
+                                        <TextBlock Grid.Row="1" FontSize="30" Text="{Binding PhoneNum}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="AddContactorBtn" Grid.Column="0" HorizontalAlignment="Stretch" Content="添加" FontSize="35" Margin="0,0,5,0" Click="AddContacter"/>
+                            <Button Name="CallBtn" Grid.Column="1" HorizontalAlignment="Stretch" Content="拨打" FontSize="35" IsEnabled="False" Margin="5,0,0,0" Click="Call"/>
+                        </Grid>
+                    </Grid>
+
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>

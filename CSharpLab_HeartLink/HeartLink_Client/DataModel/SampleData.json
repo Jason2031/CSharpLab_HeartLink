@@ -1,0 +1,36 @@
+{"Groups":[
+  {
+    "UniqueId": "LifeService",
+    "Title": "LifeService",
+    "Subtitle": "LifeService",
+    "ImagePath": "",   
+    "Items":
+    [
+      {
+        "UniqueId": "Repair",
+        "Title": "Repair",
+        "Subtitle": "Repair",
+        "ImagePath": "Images/repair.png"
+      },
+      {
+        "UniqueId": "Ask off",
+        "Title": "Ask off",
+        "Subtitle": "Ask off",
+        "ImagePath": "Images/AskOff.png"
+      },
+      {
+        "UniqueId": "Express",
+        "Title": "Express",
+        "Subtitle": "Express",
+        "ImagePath": "Images/delivery.png"
+      },
+      {
+        "UniqueId": "Water delivery",
+        "Title": "Water delivery",
+        "Subtitle": "Water delivery",
+        "ImagePath": "Images/water.png"
+      }
+    ]
+  }
+]
+}

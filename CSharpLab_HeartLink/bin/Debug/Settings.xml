@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <ipendpoint>
+    <ipaddress>127.0.0.1</ipaddress>
+    <port>30000</port>
+  </ipendpoint>
+  <database>
+    <dbserver>127.0.0.1</dbserver>
+    <dbport>3306</dbport>
+    <dbuserid>root</dbuserid>
+    <dbpassword>root</dbpassword>
+    <dbschema>heartlink</dbschema>
+  </database>
+</config>

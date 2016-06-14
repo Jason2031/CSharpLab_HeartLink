@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="HeartLink_Client.Repair"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeartLink_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Margin="5">
+        <TextBlock Text="维修" FontSize="50"/>
+        <StackPanel Name="forStudent" Visibility="Collapsed">
+            <TextBlock Text="请写下你地址和维修物品" FontSize="30" Margin="0,10,0,10"/>
+            <TextBox Name="RequestTextBox" Margin="5" MinHeight="350" HorizontalAlignment="Stretch" TextWrapping="Wrap" TextChanged="RequestTextBox_TextChanged"/>
+        </StackPanel>
+        <StackPanel Name="forSupervisor" Visibility="Collapsed">
+            <ListBox Margin="5" Name="display" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="GoBackBtn" Content="返回" HorizontalAlignment="Stretch" Click="GoBack"/>
+            <Button Grid.Column="2" Name="ConfirmBtn" Content="确定" HorizontalAlignment="Stretch" IsEnabled="False" Click="Confirm"/>
+        </Grid>
+    </StackPanel>
+</Page>
